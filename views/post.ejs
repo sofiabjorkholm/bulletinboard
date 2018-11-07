@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+        <link href="./style.css" rel="stylesheet" type="text/css">
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body> 
+    <% include ./header %>   
+    <div class='box'>
+<h2> These are all the ideas for the perfect office space! </h2>
+    <h3>Add yours below  <i class="fas fa-lightbulb"></i></h3>
+</div>
+<ul>    
+    <li><% posted.forEach(function(result) {%>
+        <a href="#">
+         <h2><%- result.title + '</h2>'+'<p>'+ result.body %></p>
+        <%});%>
+        </a>
+    </li>
+</ul>
+<a href="/index" class=btn2>Post Your Idea</a>
+
+</body>
