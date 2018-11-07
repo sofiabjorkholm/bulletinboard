@@ -15,7 +15,7 @@ const pool = new Pool({
   app.use(express.static(__dirname + '/views')); //include css
   app.use(bodyParser.urlencoded({ extended: false }))
 
-  app.get('/index', function(req,res){
+  app.get('/', function(req,res){
     res.render('index')
   })
 
