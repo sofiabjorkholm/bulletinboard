@@ -1,3 +1,0 @@
-export POSTGRES_USER=sofiabjorkholm
-export POSTGRES_PASSWORD=gunilla1
-
