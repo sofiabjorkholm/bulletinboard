@@ -31,7 +31,7 @@ const pool = new Pool({
       title: req.body.title,
       message: req.body.message
     }
-    //console.log(input)
+
     const text = 'INSERT INTO messages(title, body) VALUES($1, $2) RETURNING *'
     const values = [input.title, input.message]
     pool.query(text, values, (err, res) => {
@@ -41,7 +41,6 @@ const pool = new Pool({
        console.log(res.rows[0])
       }
             })
-    //res.render('post', {posted: input})
     res.redirect('/post')
   })
 
@@ -52,11 +51,6 @@ const pool = new Pool({
         if (err) {
           console.log(err)
         } else { 
-            // for (let i =0; i<response.length; i++){ // running through the file users.json
-            //     console.log(response)
-            //   let fullMessage = (response[i].messages)
-            //     // messages.push(postedMessages)
-            //     console.log(fullMessage)
             console.log(response.rows)
             let result= response.rows
             messages.push(result)
@@ -64,28 +58,5 @@ const pool = new Pool({
             }      
       })
   })
-
-  // for( i = 0; i < response.length; i++) {
-  //   // console.log(data.search[i].firstname)
-  //           $( "#result" ).append(`<ul>${(response[i].title) + ' ' + (response[i].body)}</ul>`) 
-  //           console.log(response[i].title + ' ' + response[i].body) 
-  //   }
-// let input = process.argv[2]
-// console.log(input) //these two lines were the only thing lindesy put in the beginning to test the node and process argv, good to remember
-// //pool.query("SELECT * FROM hats WHERE name =$1", [input], (err, res) => { //putting input as name will not work, use $1, and input as an argument thereafter
-//   //can alo do the following:
-//   pool.query(`SELECT * FROM hats WHERE name ='${input}'`, (err, res) => { 
-//   //Database connection pooling is a method used to keep database 
-//   //connections open so they can be reused futher down the process.
-
-//   if (err) {
-//       throw err
-//         }
-
-//    console.log('hat:', res.rows[0])
-//       })
-//note: if you specify in the command line and argument containing two words, you need the quotes, 
-//i.e., 'top hats' now the process argv sees the argument as the second [2] argument, if you do not use quotes, top will be second and hat will be third, thus will not work
-
 
 app.listen(port, () => console.log(`bulletin board app listening on port ${port}!`)) 
